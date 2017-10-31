@@ -6,13 +6,23 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
+  has_many :moderated_subs,
+    foreign_key: :moderator_id,
+    primary_key: :id,
+    class_name: :Sub
+
+  has_many :posts,
+    foreign_key: :author_id,
+    primary_key: :id,
+    class_name: :Post
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
   def User.find_by_credentials(username, password)
-    user = User.find(username: username)
+    user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
   end
 
