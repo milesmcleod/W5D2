@@ -19,21 +19,4 @@
 <% end %>
 
 
-<h3>Add post</h3>
-
-<form class="" action="<%= sub_posts_url(@sub) %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="post[sub_id]" value="<%= @sub.id %>">
-  <label>Title:
-    <input type="text" name="post[title]">
-  </label>
-  <label>URL (optional):
-    <input type="text" name="post[url]">
-  </label>
-  <label>Content:
-    <textarea name="post[content]" rows="8" cols="80"></textarea>
-  </label>
-
-  <input type="submit" name="" value="Create Post">
-
-</form>
+<%= link_to 'Add Post', new_sub_post_url(@sub) %>

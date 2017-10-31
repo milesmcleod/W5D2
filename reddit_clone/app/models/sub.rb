@@ -6,9 +6,15 @@ class Sub < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
-  has_many :posts,
+  has_many :postings,
+    inverse_of: :sub,
+    dependent: :destroy,
     foreign_key: :sub_id,
     primary_key: :id,
-    class_name: :Post
+    class_name: :PostSub
+
+  has_many :posts,
+    through: :postings,
+    source: :post
 
 end

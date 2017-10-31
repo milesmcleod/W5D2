@@ -2,6 +2,8 @@ class SubsController < ApplicationController
 
   before_action :require_user_is_moderator, only: [:edit, :update]
 
+  before_action :require_logged_in, except: [:index, :show]
+
   def require_user_is_moderator
     current_user.moderated_subs.ids.include?(params[:id])
   end
