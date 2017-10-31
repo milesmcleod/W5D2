@@ -21,20 +21,25 @@
   border: 1px solid #ccc;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+  overflow: hidden;
 }
 
 .header-notifications li {
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 20px;
-  font-weight: normal;
-  font-size: 14px;
-  color: black;
   border-bottom: 1px solid #ccc;
 }
 
-.header-notifications li:last-of-type {
+.header-notifications li a {
+  padding: 10px 20px;
+  font-weight: normal;
+  font-size: 14px;
+  color: black;
+}
+
+.header-notifications li a:hover {
+  background: #eee;
+}
+
+.header-notifications li:last-of-type a {
   border-bottom: 0;
 }
 
