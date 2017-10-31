@@ -1,2 +1,28 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%= "#{@post.title} by #{@post.author.username}" %></h1>
+<%= @post.url %>
+<%= @post.content %>
+<% if current_user == @post.author %>
+  <%= link_to 'Edit post', "/posts/#{@post.id}/edit" %>
+  <%= button_to 'Delete post', "/@posts/#{@post.id}", method: :delete %>
+<% end %>
+
+<% @post.comments.each do |c| %>
+  <%= c.content %>
+  <%= c.author.username %>
+  <% if current_user == @post.author %>
+    <%= button_to 'Delete comment', "/comments/#{c.id}", method: :delete %>
+  <% end %>
+<% end %>
+
+<h3>Add Comment</h3>
+
+<form class="" action="/comments" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>Content:
+    <textarea name="comment[content]" rows="8" cols="80"></textarea>
+  </label>
+  <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+
+  <input type="submit" name="" value="Create Comment">
+
+</form>

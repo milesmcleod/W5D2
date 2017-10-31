@@ -21,7 +21,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.author_id = current_user.id
-    byebug
     if @post.save
       redirect_to subs_url
     else
@@ -52,8 +51,9 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    old_sub = @post.subs.last
     @post.destroy if @post
-    redirect_to sub_url(@post.subs.last)
+    redirect_to sub_url(old_sub)
   end
 
   def post_params

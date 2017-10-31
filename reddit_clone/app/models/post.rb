@@ -17,4 +17,6 @@ class Post < ApplicationRecord
     through: :postings,
     source: :sub
 
+  has_many :comments, dependent: :destroy
+
 end
