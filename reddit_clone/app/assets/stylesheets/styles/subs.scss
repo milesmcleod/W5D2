@@ -1,0 +1,40 @@
+// Place all the styles related to the Subs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dex {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dex h1 {
+  margin: 50px;
+  font-size: 80px;
+}
+
+.dex a {
+  color: blue;
+  margin: 15px;
+}
+
+.sub-sub {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+.sub-link {
+  font-size: 40px;
+  margin: 15px;
+}
+
+.sub-sub h3 {
+
+}

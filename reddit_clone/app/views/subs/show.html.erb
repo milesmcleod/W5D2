@@ -1,23 +1,32 @@
-<h1> <%= @sub.title %> </h1>
-<h2>Moderated by <%= @sub.moderator.username %></h2>
+<section class="dex">
+  <div class="sub-sub">
+    <h1> <%= @sub.title %> </h1>
+    <%= link_to 'Back to all subs', subs_url %>
 
-<%= @sub.description %>
+    <h2>Moderated by: <%= @sub.moderator.username %></h2>
 
-<%= link_to 'Back to all subs', subs_url %>
-<% if @sub.moderator == current_user %>
-  <%= link_to 'Edit Sub', edit_sub_url(@sub) %>
-<% end %>
+    <h3>description: </h3>
+    <%= @sub.description %>
 
-<% @sub.posts.each do |post| %>
-  <%= link_to post.title, post_url(post)%>
-  <%"#{post.author.username}" %>
-  <%= post.url %>
-  <%= post.content %>
-  <% if current_user == post.author %>
-    <%= link_to 'Edit post', "/subs/#{@sub.id}/posts/#{post.id}/edit" %>
-    <%= button_to 'Delete post', "/posts/#{post.id}", method: :delete %>
-  <% end %>
-<% end %>
+    <% if @sub.moderator == current_user %>
+      <%= link_to 'Edit Sub', edit_sub_url(@sub) %>
+    <% end %>
+  </div>
+  <div class="sub-sub">
+    <h2>All Posts</h3>
 
+    <% @sub.posts.each do |post| %>
+      <h3><%= link_to post.title, post_url(post)%></h2>
+      <p><%="#{post.author.username}" %></p>
+      <p><%= post.url %></p>
+      <p><%= post.content %></p>
+      <% if current_user == post.author %>
+        <%= link_to 'Edit post', "/subs/#{@sub.id}/posts/#{post.id}/edit" %>
+        <%= button_to 'Delete post', "/posts/#{post.id}", method: :delete %>
+      <% end %>
+    <% end %>
 
-<%= link_to 'Add Post', new_sub_post_url(@sub) %>
+    <%= link_to 'Add Post', new_sub_post_url(@sub) %>
+  </div>
+
+</section>

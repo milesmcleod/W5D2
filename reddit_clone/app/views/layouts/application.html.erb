@@ -9,19 +9,38 @@
   </head>
 
   <body>
-
-    <% flash[:errors].try(:each) do |err| %>
-      <%= err %>
-    <% end %>
-
-    <% if logged_in? %>
-      <%= 'Hello, ' + current_user.username + '.' %>
-      <%= button_to 'Sign Out', session_url, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign In', new_session_url %>
-      <%= link_to 'Sign Up', new_user_url %>
-    <% end %>
-
-    <%= yield %>
+    <header>
+      <% if flash[:errors] %>
+        <section class="errors">
+          <ul>
+            <% flash[:errors].each do |err| %>
+              <li><%= err %></li>
+            <% end %>
+          </ul>
+        </section>
+      <% end %>
+      <section class="header">
+        <nav class="navigation">
+          <% if logged_in? %>
+            <ul class="greeting">
+              <li><%='Hello, ' + current_user.username + '.'%></li>
+              <li><%= button_to 'Sign Out', session_url, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul class="greeting"
+              <li>
+                <%= link_to 'Sign In', new_session_url %>
+              </li>
+              <li>
+                  <%= link_to 'Sign Up', new_user_url %>
+              </li>
+            </ul>
+          <% end %>
+        </nav>
+      </section>
+    </header>
+    <section class="page-content">
+      <%= yield %>
+    </section>
   </body>
 </html>

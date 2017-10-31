@@ -1,7 +1,11 @@
-<h1>All Subs</h1>
 
-<%= link_to 'Add New Sub', new_sub_url %>
+<section class="dex">
 
-<% @subs.each do |sub| %>
-  <%= link_to sub.title, sub_url(sub) %>
-<% end %>
+  <h1>All Subs</h1>
+  <% @subs.each do |sub| %>
+    <span class="sub-link"><%= link_to sub.title, sub_url(sub) %></span>
+  <% end %>
+
+  <%= link_to 'Add New Sub', new_sub_url %>
+
+</section>
