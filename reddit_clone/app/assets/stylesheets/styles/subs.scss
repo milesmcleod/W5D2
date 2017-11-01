@@ -7,11 +7,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: wrap;
 }
 
 .dex h1 {
   margin: 50px;
-  font-size: 80px;
+  font-size: 100px;
 }
 
 .dex a {
@@ -30,11 +31,13 @@
   padding: 10px;
 }
 
-.sub-link {
-  font-size: 40px;
-  margin: 15px;
+.sub-links {
+
 }
 
-.sub-sub h3 {
-
+.sub-link {
+  font-size: 90px;
+  font-weight: bold;
+  margin: 5rpx 10px;
+  display: inline-block;
 }

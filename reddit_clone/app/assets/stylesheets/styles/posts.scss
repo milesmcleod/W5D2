@@ -1,3 +1,41 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-dex {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.post-dex h1 {
+  margin: 50px;
+  font-size: 80px;
+}
+
+.post-dex a, .comment-div a {
+  color: blue;
+  margin: 15px;
+}
+
+.comment-div {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px 0;
+  margin-left: 100px;
+  padding: 10px;
+}
+
+.post-link {
+  font-size: 40px;
+  margin: 15px;
+}
+
+.comment {
+  font-size: 35px;
+}

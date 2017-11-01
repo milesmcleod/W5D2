@@ -1,0 +1,25 @@
+<div class="comment-div">
+  <p class="comment"><%= @comment.content %></p>
+  <%= link_to 'Back to post', post_url(@comment.post) %>
+  <p class="username">-<%= @comment.author.username %></p>
+  <% if current_user == @comment.author %>
+    <%= button_to 'Delete comment', "/comments/#{@comment.id}", method: :delete %>
+  <% end %>
+  <% @comment.child_comments.each do |comment| %>
+    <%= render 'comment', comment: comment %>
+  <% end %>
+</div>
+
+<h3>Add Comment to Thread</h3>
+
+<form class="" action="/comments" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= @comment.id %>">
+  <label>Content:
+    <textarea name="comment[content]" rows="8" cols="80"></textarea>
+  </label>
+  <input type="hidden" name="comment[post_id]" value="<%= @comment.post.id %>">
+
+  <input type="submit" name="" value="Create Comment">
+
+</form>

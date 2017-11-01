@@ -17,9 +17,9 @@
 
     <% @sub.posts.each do |post| %>
       <h3><%= link_to post.title, post_url(post)%></h2>
-      <p><%="#{post.author.username}" %></p>
       <p><%= post.url %></p>
       <p><%= post.content %></p>
+      <p><%="-#{post.author.username}" %></p>
       <% if current_user == post.author %>
         <%= link_to 'Edit post', "/subs/#{@sub.id}/posts/#{post.id}/edit" %>
         <%= button_to 'Delete post', "/posts/#{post.id}", method: :delete %>
