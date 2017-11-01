@@ -9,18 +9,4 @@
   <% comment.child_comments.each do |comment| %>
     <%= render 'comments/comment', comment: comment %>
   <% end %>
-  <div class="show-comment-form">
-    <a href="#">Reply</a>
-    <div class="comment-form">
-      <form class="" action="/comments" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <label>Content:
-          <textarea name="comment[content]" rows="8" cols="80"></textarea>
-        </label>
-        <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
-
-        <input type="submit" name="" value="Create Comment">
-      </form>
-    </div>
-  </div>
 </div>

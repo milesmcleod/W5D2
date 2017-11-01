@@ -16,6 +16,10 @@ user.save
   user = User.create(username: Faker::Name.name_with_middle, password: 'password')
 end
 
+10.times do
+  user = User.create(username: Faker::Name.name, password: 'password')
+end
+
 [ 'hipsters',
   'politics',
   'dank memes',
@@ -30,7 +34,33 @@ end
   'food',
   'beer',
   'NBA',
-  'nfl' ].each do |sub_title|
+  'NFL',
+  'geodesic domes',
+  'tiny houses',
+  'gardening',
+  'capitalism',
+  'marxism',
+  'getting kind of crazy',
+  'mexican foods',
+  'the stupid president',
+  'GSW',
+  'runescape',
+  'minecraft',
+  'the spanish language',
+  'bollywood',
+  'calvin and hobbes',
+  'MF Doom',
+  'hip-hop',
+  'cars',
+  'boats',
+  'trucks',
+  'sauce',
+  'spelling bees',
+  'an estuary',
+  'having terrible taste in shoes',
+  'cool shoes',
+  'dogs',
+  'tequila'].map(&:downcase).sort.each do |sub_title|
   Sub.create(
     title: sub_title,
     description: Faker::TheFreshPrinceOfBelAir.quote,
@@ -38,19 +68,19 @@ end
   )
 end
 
-60.times do
+120.times do
   Post.create(
     content: Faker::MostInterestingManInTheWorld.quote,
     title: Faker::Pokemon.name,
-    author_id: rand(1..11),
-    sub_ids: [rand(1..15)]
+    author_id: rand(1..21),
+    sub_ids: [rand(1..31)]
   )
 end
 
-200.times do
+400.times do
   Comment.create(
     content: Faker::HeyArnold.quote,
-    author_id: rand(1..11),
-    post_id: rand(1..60)
+    author_id: rand(1..21),
+    post_id: rand(1..120)
   )
 end

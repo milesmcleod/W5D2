@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .dex {
-  width: 85%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,12 +32,13 @@
 }
 
 .sub-links {
-
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .sub-link {
   font-size: 90px;
   font-weight: bold;
-  margin: 5rpx 10px;
-  display: inline-block;
+  margin: 0 10px;
 }
